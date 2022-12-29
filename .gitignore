@@ -1,15 +1,15 @@
-# Local data not for repository 
+# Local data not for repository
 # Title
 
 #Sandbox
 sandbox.ipynb
 Worksheet.ipynb
 
-#   pdfs too large for repository   
+#   pdfs too large for repository
 # *.pdf
 # docs/RuinaPratap-July-12-2019.pdf
 
-#   local archived 
+#   local archived
 archive/
 Archive/
 
@@ -143,3 +143,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Sympy.code-workspace
