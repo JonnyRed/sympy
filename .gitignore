@@ -1,5 +1,8 @@
 # Local data not for repository
 # Title
+Sympy.code-workspace
+sympy-vector.ipynb
+
 
 #Sandbox
 sandbox.ipynb
@@ -143,4 +146,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-Sympy.code-workspace
