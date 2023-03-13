@@ -1,0 +1,12 @@
+name: sympy-cheat-sheet
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - ipython
+  - ipykernel
+  - numpy
+  - matplotlib
+  - seaborn
+  - sympy
+prefix: D:\Users\John\miniconda3\envs\sympy-cheat-sheet
