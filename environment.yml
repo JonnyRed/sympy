@@ -1,5 +1,6 @@
 name: sympy-cheat-sheet
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - python=3.10
@@ -9,4 +10,5 @@ dependencies:
   - matplotlib
   - seaborn
   - sympy
+  - sympy_plot_backends
 prefix: D:\Users\John\miniconda3\envs\sympy-cheat-sheet
