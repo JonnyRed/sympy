@@ -1,6 +1,7 @@
-name: sympy-cheat-sheet
+name: sympy
 channels:
   - conda-forge
+  - bokeh
   - defaults
 dependencies:
   - python=3.10
@@ -9,6 +10,19 @@ dependencies:
   - numpy
   - matplotlib
   - seaborn
+  - pandas
   - sympy
+  - scipy
+  - notebook
+  - adaptive
+  - panel
+  - ipywidgets
+  - ipympl
+  - ipywidgets_bokeh
+  - colorcet
+  - k3d
+  - msgpack-python
+  - plotly::plotly
+  - vtk
   - sympy_plot_backends
-prefix: D:\Users\John\miniconda3\envs\sympy-cheat-sheet
+prefix: D:\Users\John\miniconda3\envs\sympy
