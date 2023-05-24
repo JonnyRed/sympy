@@ -13,6 +13,7 @@ dependencies:
   - pandas
   - sympy
   - scipy
+  - statsmodels
   - notebook
   - adaptive
   - panel
