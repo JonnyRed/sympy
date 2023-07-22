@@ -147,3 +147,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+base-format-example-formatted.py
+base-format-example.py
