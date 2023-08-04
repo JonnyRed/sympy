@@ -94,3 +94,98 @@ research question being asked. If it is important to have a
 representativesample of the population, then probability sampling is the
 best option. However, if it is not possible to use probability
 sampling, then non-probability sampling may be the only option.
+
+# p-value
+
+The p-value is a statistical measure that provides evidence against the
+null hypothesis in a hypothesis test. In the context of correlation
+analysis, the p-value associated with the correlation coefficient
+indicates the statistical significance of the observed correlation.
+
+Here's what the p-value signifies:
+
+1. Null Hypothesis (H0): The null hypothesis in correlation analysis
+states that there is no significant correlation between the variables
+in the population.
+
+2. Alternative Hypothesis (H1): The alternative hypothesis suggests
+that there is a significant correlation between the variables in the
+population.
+
+3. Significance Level ($\alpha$): The significance level, commonly
+denoted as $\alpha$, is a pre-defined threshold used to determine
+statistical significance. It represents the probability of rejecting
+the null hypothesis when it is true. The most common significance
+levels are 0.05 (5%) and 0.01 (1%).
+
+4. Interpreting the p-value:
+* If the p-value is less than the chosen significance level
+($p-value < \alpha$), it provides evidence to reject the null hypothesis.
+This suggests that the observed correlation is statistically significant,
+and there is a strong likelihood that a true correlation exists in
+the population.
+* If the p-value is greater than or equal to the chosen significance
+level (p-value \ge \alpha$), it does not provide sufficient evidence
+to reject the null hypothesis. This suggests that the observed
+correlation is not statistically significant, and there is
+insufficient evidence to conclude that a true correlation exists in
+the population.
+
+In summary, the p-value helps determine whether the observed
+correlation is statistically significant or if it could be due to
+random chance. A low p-value (typically below the chosen
+significance level) indicates a significant correlation, while a
+high p-value suggests that the observed correlation could be due to
+sampling variability or chance.
+
+It's important to note that the p-value is not a measure of the strength
+or magnitude of the correlation itself. It only assesses the
+statistical significance of the observed correlation based on the
+given data and the chosen significance level.
+
+# Product Moment Correlation Coefficient
+
+The product moment correlation coefficient, also known as the __Pearson
+correlation coefficient__, is a measure of the strength and direction
+of the linear relationship between two continuous variables.
+It quantifies how closely the data points of the two variables
+align around a straight line.
+
+The Pearson correlation coefficient is a value between -1 and 1.
+Here's what different values of the correlation coefficient indicate:
+
+* A correlation coefficient of 1: It represents a perfect positive
+linear relationship. This means that as one variable increases,
+the other variable also increases in a proportional manner.
+* A correlation coefficient close to 1: It indicates a strong positive
+linear relationship. The variables tend to move in the same direction,
+but there may be some variability.
+* A correlation coefficient close to 0: It suggests little to no
+linear relationship between the variables. The variables are not
+significantly related to each other.
+* A correlation coefficient close to -1: It suggests a strong negative
+linear relationship. As one variable increases, the other variable
+decreases in a proportional manner.
+* A correlation coefficient of -1: It represents a perfect negative
+linear relationship. The variables have a perfect inverse relationship,
+meaning that as one variable increases, the other variable decreases
+in a perfectly predictable manner.
+
+It's important to note that the correlation coefficient only measures
+the linear relationship between variables. It may not capture
+non-linear relationships or other complex patterns in the data.
+Additionally, correlation does not imply causation, meaning that
+a high correlation does not necessarily imply a cause-and-effect
+relationship between the variables.
+
+Overall, the product moment correlation coefficient is a valuable statistic that helps quantify and interpret the linear relationship between two continuous variables.
+
+## Interpreting the p-value in Pearson
+
+Interpreting the p-value:
+
+The p-value represents the probability of observing a correlation
+coefficient as extreme as the one calculated (or even more extreme)
+under the null hypothesis that there is no correlation between the
+two variables. A smaller p-value indicates stronger evidence
+against the null hypothesis.
