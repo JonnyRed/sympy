@@ -189,3 +189,84 @@ coefficient as extreme as the one calculated (or even more extreme)
 under the null hypothesis that there is no correlation between the
 two variables. A smaller p-value indicates stronger evidence
 against the null hypothesis.
+
+# erf function
+
+The error function, often denoted by erf, is a mathematical function
+that describes the probability that a __standard normal variable__ will
+be less than a certain value. It is defined as:
+
+$$ erf(x) = \frac{2} {\sqrt \pi} \int_0^x e^{-t^2} dt $$
+
+
+where x is a real number.
+
+The error function has a number of important properties, including:
+
+* It is an odd function, meaning that erf(-x) = -erf(x).
+* It is asymptotic to 0 as x approaches positive or negative infinity.
+* It reaches a maximum value of 1 at x = 0.
+* It is used in a variety of statistical applications, such as
+calculating the probability that a standard normal variable will be
+within a certain range.
+
+For python an $x$ value of $0.5$ $erf_x = math.erf(0.5)$, calculates the error
+function for the value x = 0.5. The output of this code,
+ 0.5204998778130465, is the probability that a standard normal variable
+ will be less than 0.5.
+
+In other words, if you take a large number of standard normal variables,
+about 52.05% of them will be less than 0.5.
+
+The error function is a useful tool for understanding and analyzing
+data that is normally distributed. It can be used to calculate the
+probability that a variable will fall within a certain range, to
+compare different populations, and to make predictions about
+future events.
+
+# Distributions
+
+## Normal Distribution
+
+In statistics, a normal distribution is a type of continuous probability
+distribution that is symmetrical around its mean, most of the
+observations cluster around the central peak, and the probabilities
+for values further away from the mean taper off equally in both
+directions. It is also known as the Gaussian distribution or the
+bell curve.
+
+The normal distribution is one of the most important distributions
+in statistics because it is used to model a wide variety of
+real-world phenomena, such as heights, weights, IQ scores, and
+test scores. It is also used in many statistical tests, such as the
+t-test and the z-test.
+
+The normal distribution is defined by two parameters: the mean and
+the standard deviation. The mean is the average value of the
+distribution, and the standard deviation is a measure of how spread
+out the values are.
+
+A normal distribution with a mean of 0 and a standard deviation of 1
+is called a standard normal distribution. This distribution is often
+used as a reference point for other normal distributions.
+
+Here are some examples of variables that are normally distributed:
+
+* Height
+* Weight
+* IQ scores
+* Blood pressure
+* Temperature
+* Reaction time
+
+The normal distribution is a powerful tool for understanding and
+analyzing data. It is used in a wide variety of fields, including
+statistics, engineering, finance, and medicine.
+
+Here are some of the uses of the normal distribution:
+
+* To model the distribution of continuous variables in nature.
+* To construct confidence intervals and hypothesis tests.
+* To compare different populations.
+* To make predictions about future events.
+* To optimize systems.
