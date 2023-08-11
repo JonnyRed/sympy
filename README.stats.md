@@ -190,39 +190,6 @@ under the null hypothesis that there is no correlation between the
 two variables. A smaller p-value indicates stronger evidence
 against the null hypothesis.
 
-# erf function
-
-The error function, often denoted by erf, is a mathematical function
-that describes the probability that a __standard normal variable__ will
-be less than a certain value. It is defined as:
-
-$$ erf(x) = \frac{2} {\sqrt \pi} \int_0^x e^{-t^2} dt $$
-
-
-where x is a real number.
-
-The error function has a number of important properties, including:
-
-* It is an odd function, meaning that erf(-x) = -erf(x).
-* It is asymptotic to 0 as x approaches positive or negative infinity.
-* It reaches a maximum value of 1 at x = 0.
-* It is used in a variety of statistical applications, such as
-calculating the probability that a standard normal variable will be
-within a certain range.
-
-For python an $x$ value of $0.5$ $erf_x = math.erf(0.5)$, calculates the error
-function for the value x = 0.5. The output of this code,
- 0.5204998778130465, is the probability that a standard normal variable
- will be less than 0.5.
-
-In other words, if you take a large number of standard normal variables,
-about 52.05% of them will be less than 0.5.
-
-The error function is a useful tool for understanding and analyzing
-data that is normally distributed. It can be used to calculate the
-probability that a variable will fall within a certain range, to
-compare different populations, and to make predictions about
-future events.
 
 # Distributions
 
@@ -270,3 +237,69 @@ Here are some of the uses of the normal distribution:
 * To compare different populations.
 * To make predictions about future events.
 * To optimize systems.
+
+### erf function
+
+The error function, often denoted by $\mathrm{erf}$, is a mathematical
+function that describes the probability that a
+__standard normal variable__ will be less than a certain value.
+It is defined as:
+
+$$ {erf} (x) = \frac{2} {\sqrt \pi} \int_0^x e^{-t^2} dt $$
+
+
+where $x$ is a real number.
+
+The error function has a number of important properties, including:
+
+* It is an odd function, meaning that erf(-x) = -erf(x).
+* It is asymptotic to 0 as x approaches positive or negative infinity.
+* It reaches a maximum value of 1 at x = 0.
+* It is used in a variety of statistical applications, such as
+calculating the probability that a standard normal variable will be
+within a certain range.
+
+For python an $x$ value of $0.5$ $erf_x = \mathrm{math.erf} (0.5)$ ,
+calculates the error function for the value $x = 0.5$. The output of
+this code,  0.5204998778130465, is the probability that a
+standard normal variable  will be less than 0.5.
+
+In other words, if you take a large number of standard normal variables,
+about 52.05% of them will be less than 0.5.
+
+The error function is a useful tool for understanding and analyzing
+data that is normally distributed. It can be used to calculate the
+probability that a variable will fall within a certain range, to
+compare different populations, and to make predictions about
+future events.
+
+### Standard normal variable
+
+A __standard normal variable__, also known as a
+__standard normal random variable__ or a __Z-score__, is a random variable
+that has been standardized to have a mean of 0 and a standard deviation
+of 1. It is derived from a normal distribution by transforming the
+original data into a new variable with these standard characteristics.
+
+Given a normally distributed random variable $X$ with mean $mu$ and
+standard deviation $\sigma$ the standard normal variable $Z$ is obtained
+by applying the following transformation:
+
+$$ Z = \frac{X - \mu}{\sigma} $$
+
+Here, $Z$ follows a standard normal distribution, which is also called
+the Z-distribution or the standard Gaussian distribution. This
+distribution has a bell-shaped curve like the regular
+normal distribution, but it has a mean of 0 and a standard deviation
+of 1. The probability density function (PDF) of the standard normal
+distribution is denoted by $\phi(z)$:
+
+$$ \phi(z) = \frac{1}{\sqrt{2\pi}} e^{-\frac{z^2}{2}}$$
+
+The standard normal distribution is widely used in statistics and
+hypothesis testing. It allows us to standardize data from different
+normal distributions, making it easier to compare and analyze values
+across different scales. The concept of Z-scores is particularly useful
+in determining how many standard deviations a data point is away from
+the mean. This information can be used to calculate probabilities,
+identify outliers, and perform various statistical analyses.
