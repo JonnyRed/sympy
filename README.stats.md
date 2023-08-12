@@ -17,13 +17,22 @@ by the surface area under the curve within a specified interval.
 * A probability density function can exist in the form of a table,
 a graph and an equation.
 
+## Random variable formulae
+
+$$ \mu = E(X) = \sum x P(x) \quad \text{Discrete distribution}$$
+
+$$\mu = E(X) = \int_a^b x P(x) d x \quad \text{Continuous distribution}$$
+
+
+$$\sigma^2 = {Var}(X) = E \left (\left( X-\mu \right)^2 \right)$$
+
 # Cumulative Probability
 
 * A __cumulative probability__ of a random variable is the probability
 of obtaining a value lower than or equal to a threshold-value.
 * Considered in the other direction, a cumulative probability specifies
 a quantile of the random variable, for example at the cumulative
-probability of oh point five the median of the random variable is found.
+probability of $0.5$ the median of the random variable is found.
 * Just like a probability distribution, the cumulative probability
 distribution can exist in the form of a table, a graph or an equation.
 * It can be obtained by calculating a cumulative sum of the
@@ -143,6 +152,30 @@ or magnitude of the correlation itself. It only assesses the
 statistical significance of the observed correlation based on the
 given data and the chosen significance level.
 
+# Hypothesis Testing Errors
+
+* Type I error: rejecting $H_0$ when it is true. This can be thought
+of as a `false positive'.
+Denote the probability of this type of error by $\alpha$.
+* Type II error: failing to reject $H_0$ when it is false. This can be
+thought of as a `false negative'. Denote the probability of this type
+of error by $\beta$.
+
+![](images/hypoth01.png)
+
+|&nbsp;|$H_0$ not rejected |$H_0$ rejected|
+|------|----------------|-----------|
+|$H_0$ true| $1 -\alpha$| $P (\text {Type I error}) = \alpha$ |
+|$H_1$ true| $P (\text{Type II error}) = \beta$| $1-\beta$|
+
+
+We have:
+
+$$P(H0 \text{ not rejected} | H_0 \text{ is true}) = 1-\alpha$$
+$$P(H_0 \text{ rejected} \vert H_0 \text{ is true} ) = \alpha$$
+$$P(H_0 \text{ not rejected} \vert H_1 \text{ is true}) = \beta$$
+$$P(H_0 \text{ rejected} \vert H_1 \text{ is true}) = 1 - \beta$$
+
 # Product Moment Correlation Coefficient
 
 The product moment correlation coefficient, also known as the __Pearson
@@ -192,6 +225,20 @@ against the null hypothesis.
 
 
 # Distributions
+
+## ## Bernoulli trials
+
+Suppose we carry out $n$ Bernoulli trials such that:
+* at each trial, the probability of success is $p$
+* different trials are statistically independent events.
+
+Let $X$ denote the total number of successes in these n trials,
+then $X$ follows a binomial distribution with parameters $n$ and $\pi$,
+where $n \ge 1$ is a known integer and $0 \le \pi \le 1$. This
+is often written as:
+
+$$X \sim \text{Bin}(n, \pi)$$
+$$X \sim \text{Bin}(n, \pi) \Rightarrow E(X)= n\pi$$
 
 ## Normal Distribution
 
@@ -259,7 +306,7 @@ The error function has a number of important properties, including:
 calculating the probability that a standard normal variable will be
 within a certain range.
 
-For python an $x$ value of $0.5$ $erf_x = \mathrm{math.erf} (0.5)$ ,
+For python an $x$ value of $0.5$: $erf_x = \mathrm{math.erf} (0.5)$ ,
 calculates the error function for the value $x = 0.5$. The output of
 this code,  0.5204998778130465, is the probability that a
 standard normal variable  will be less than 0.5.
