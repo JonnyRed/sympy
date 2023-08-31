@@ -6,7 +6,7 @@ sympy-vector.ipynb
 
 
 #Sandbox
-sandbox.ipynb
+sandbox.*
 Worksheet.ipynb
 
 #   pdfs too large for repository
@@ -149,3 +149,4 @@ dmypy.json
 .pyre/
 base-format-example-formatted.py
 base-format-example.py
+sandbox.py
