@@ -1,5 +1,9 @@
 # Introduction
 
+* 2023/09/25 Refactor cheatsheet to be be separate `.ipynb` files. This will allow for better testing and documentation.
+
+This is a collection of `sympy` examples and notes. The purpose of this is to provide a cheatsheet summary of the techniques used in solving `sympy` problems from
+
 The purpose of this is to provide a cheatsheet summary of the techniques
 used in solving `sympy` problems from
 1. Mathematics
