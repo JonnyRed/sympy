@@ -21,6 +21,53 @@ To test the code in this README run the following python script
 python -m doctest README<name>.JR.md  -v
 ```
 
+# IPython
+
+[IPython][] (Interactive Python) is a command shell for interactive 
+computing in multiple programming languages, originally developed 
+for the Python programming language. It offers introspection, 
+rich media, shell syntax, tab completion, and history. 
+IPython provides the following features:
+
+* Interactive shells (terminal and Qt-based)
+* A web-based notebook interface with support for code, text, mathematical expressions, inline plots and other media
+* Support for interactive data visualization and use of GUI toolkits
+* Flexible, embeddable interpreters to load into one's own projects
+* Tools for parallel computing
+
+IPython is a powerful tool for data scientists, machine learning engineers, 
+and other professionals who need to work with Python interactively. 
+It is also a popular choice for teaching Python, as it makes it easy to experiment with code and see the results immediately.
+
+[IPython]: https://en.wikipedia.org/wiki/IPython
+
+# IPython and Jupyter
+
+Jupyter is a web-based interactive computing environment that supports 
+many programming languages, including Python. It is a spin-off of the 
+IPython project, and IPython is still a core component of Jupyter.
+
+Jupyter notebooks, which are the most popular way to use Jupyter, 
+are interactive documents that contain code, text, 
+mathematical expressions, inline plots, and other media. 
+Jupyter notebooks are created using the IPython kernel, which is a Python interpreter that runs inside of Jupyter.
+
+IPython also provides a number of other features, such as:
+
+* A terminal-based interactive shell
+* A Qt-based interactive shell
+* A number of tools for parallel computing
+* Support for embedding IPython in other applications
+
+Jupyter is a popular choice for data science, machine learning, and other computational tasks. It is also widely used in education and research.
+
+Here is a summary of the relationship between Jupyter and IPython:
+
+* Jupyter is a web-based interactive computing environment that supports many programming languages.
+* IPython is a Python interpreter and command shell for interactive computing.
+* IPython is the core component of Jupyter notebooks.
+* IPython also provides a number of other features, such as a terminal-based interactive shell, a Qt-based interactive shell, and a number of tools for parallel computing.
+
 # Sympy
 
 1. [SymPy Documentation][]
