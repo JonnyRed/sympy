@@ -2,6 +2,8 @@
 
 * 2023/09/25 Refactor cheatsheet to be be separate `.ipynb` files. This will allow for better testing and documentation.
 
+* 2023/09/27 Add Ipython documentation
+
 This is a collection of `sympy` examples and notes. The purpose of this is to provide a cheatsheet summary of the techniques used in solving `sympy` problems from
 
 The purpose of this is to provide a cheatsheet summary of the techniques
@@ -22,6 +24,8 @@ python -m doctest README<name>.JR.md  -v
 ```
 
 # IPython
+
+* Described in [Ipython usage][]
 
 [IPython][] (Interactive Python) is a command shell for interactive 
 computing in multiple programming languages, originally developed 
@@ -78,9 +82,17 @@ Here is a summary of the relationship between Jupyter and IPython:
 1. [Sympy Tutorial Main Site][]
 1. [Sympy Tutorial - Russia][]
 1. [Sympy examples 1][]
-1. [SymPy: symbolic computing in Python](https://peerj.com/articles/cs-103/) looks cool
-1. Good [sympy tutorial](http://www.cfm.brown.edu/people/dobrush/am33/SymPy/index.html) and [plotting](http://www.cfm.brown.edu/people/dobrush/am33/SymPy/part1.html) by Vladimir Dobrushkin
+1. [SymPy: symbolic computing in Python][] looks cool
+1. Good [sympy tutorial][] and [sympy plotting][] by Vladimir Dobrushkin
 
+
+
+
+# Statistics
+
+Provide a simple guide for using `sympy.stats` in a note book
+
+[IPython usage]: ./IPython-usage.ipynb
 
 [tutorialspoint Sympy Tutorial]:https://www.tutorialspoint.com/sympy/index.htm
 
@@ -98,9 +110,10 @@ Here is a summary of the relationship between Jupyter and IPython:
 
 [Sympy examples 1]: https://github.com/sbu-python-class/python-science/blob/master/lectures/06-sympy/sympy-examples.ipynb
 
+[SymPy: symbolic computing in Python]: https://peerj.com/articles/cs-103/
+
+[sympy tutorial]: http://www.cfm.brown.edu/people/dobrush/am33/SymPy/index.html
+
+[sympy plotting]: http://www.cfm.brown.edu/people/dobrush/am33/SymPy/part1.html
 
 
-
-# Statistics
-
-Provide a simple guide for using `sympy.stats` in a note book
