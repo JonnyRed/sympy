@@ -140,6 +140,10 @@ def generalised_chain_rule(w: sp.Function, variables: dict[sp.Symbol, sp.Expr], 
     input for another function. The generalized chain rule extends
     the basic chain rule to functions with multiple variables
     and composite arguments.
+    
+    The simple chain rule extended to functions of more than one independent 
+    variable, in which each independent variable may depend on one or 
+    more other variables
 
     Let w=f(x1,x2,…,xm) be a differentiable function of m  independent
     variables, and for each  i∈1,…,m,  let  xi=xi(t1,t2,…,tn)  be a
