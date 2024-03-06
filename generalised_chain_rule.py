@@ -49,7 +49,7 @@ b. generalised_chain_rule(w, variables, *args)
         ◦ *args: Independent variables.
    • Returns:
         ◦ A list of sympy.Eq objects, each representing an equation expressing
-        the partial derivative of w with respectto one of the independent
+        the partial derivative of w with respect to one of the independent
         variables in args.
    • Examples:
         ◦ Shows how to use the function to find the derivative of a composite
@@ -78,8 +78,7 @@ c. chain_rule_derivative(expr, variables, *args)
 4. if __name__ == "__main__": block:
 
    • This block uses doctest.testmod(verbose=False) to run the doctests
-   defined in the examples within the
-     functions for testing purposes.
+   defined in the examples within the functions for testing purposes.
 
 Note:
 
@@ -108,10 +107,10 @@ def generalised_chain_rule_for(j, w, variables, *args):
 
     Args:
         j (_type_): the index in args that is to be differentiated for.
-        w (_type_): the fuction to be differentiated
+        w (_type_): the function to be differentiated
         variables (dict[sp.Symbol, sp.Expr]): dictionary of variables
             with their function definitions
-        args: indepent variables
+        args: independent variables
 
     Returns:
         sp.Expr: The differential with respect to the j'th component of args
@@ -156,10 +155,10 @@ def generalised_chain_rule(w: sp.Function, variables: dict[sp.Symbol, sp.Expr], 
     the variables  x and  y are examples of intermediate variables.
 
     Args:
-        w (sp.Function): function symbol to be differenciated
+        w (sp.Function): function symbol to be differentiated
         variables (dict[sp.Symbol, sp.Expr]): dictionary of variables
             with their function definitions
-        args: indepent variables
+        args: independent variables
 
     Returns:
         list[sp.Eq]: list of equations giving function  differentiated
