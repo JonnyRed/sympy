@@ -49,7 +49,7 @@ b. generalised_chain_rule(w, variables, *args)
         ◦ *args: Independent variables.
    • Returns:
         ◦ A list of sympy.Eq objects, each representing an equation expressing
-        the partial derivative of w with respectto one of the independent
+        the partial derivative of w with respect to one of the independent
         variables in args.
    • Examples:
         ◦ Shows how to use the function to find the derivative of a composite
@@ -78,8 +78,7 @@ c. chain_rule_derivative(expr, variables, *args)
 4. if __name__ == "__main__": block:
 
    • This block uses doctest.testmod(verbose=False) to run the doctests
-   defined in the examples within the
-     functions for testing purposes.
+   defined in the examples within the functions for testing purposes.
 
 Note:
 
@@ -108,10 +107,10 @@ def generalised_chain_rule_for(j, w, variables, *args):
 
     Args:
         j (_type_): the index in args that is to be differentiated for.
-        w (_type_): the fuction to be differentiated
+        w (_type_): the function to be differentiated
         variables (dict[sp.Symbol, sp.Expr]): dictionary of variables
             with their function definitions
-        args: indepent variables
+        args: independent variables
 
     Returns:
         sp.Expr: The differential with respect to the j'th component of args
@@ -140,8 +139,8 @@ def generalised_chain_rule(w: sp.Function, variables: dict[sp.Symbol, sp.Expr], 
     input for another function. The generalized chain rule extends
     the basic chain rule to functions with multiple variables
     and composite arguments.
-    
-    The simple chain rule extended to functions of more than one independent 
+
+    The simple chain rule extended to functions of more than one independent
     variable, in which each independent variable may depend on one or more other variables
 
     Let w=f(x1,x2,…,xm) be a differentiable function of m  independent
@@ -156,10 +155,10 @@ def generalised_chain_rule(w: sp.Function, variables: dict[sp.Symbol, sp.Expr], 
     the variables  x and  y are examples of intermediate variables.
 
     Args:
-        w (sp.Function): function symbol to be differenciated
+        w (sp.Function): function symbol to be differentiated
         variables (dict[sp.Symbol, sp.Expr]): dictionary of variables
             with their function definitions
-        args: indepent variables
+        args: independent variables
 
     Returns:
         list[sp.Eq]: list of equations giving function  differentiated
@@ -233,6 +232,42 @@ def chain_rule_derivative(expr: sp.Expr, variables: dict[sp.Symbol, sp.Expr], *a
     ]
 
     return result
+
+
+def find_dependent_variable_differentials(
+    w: sp.Function, variables: dict[sp.Symbol, sp.Expr], *args
+):
+    """Find the intermediate differentials of the function
+
+    Args:
+        w (sp.Function): function symbol to be differentiated
+        variables (dict[sp.Symbol, sp.Expr]): dictionary of variables
+            with their function definitions
+        args: independent variables
+
+    Returns:
+        list[sp.Eq]: list of equations giving function  differentiated
+            wrt args
+
+    Examples:
+        >>> x, y, r, theta = sp.symbols("x, y, r, theta", real=True)
+        >>> dependents = {x: r * sp.cos(theta), y: r * sp.sin(theta)}
+        >>> f = sp.Function("f")
+        >>> result = find_dependent_variable_differentials(f, dependents, r, theta)
+
+        >>> result[sp.Derivative(f(x, y), x)]
+        cos(theta)*Derivative(f(r, theta), r) - sin(theta)*Derivative(f(r, theta), theta)/r
+
+        >>> result[sp.Derivative(f(x, y), y)]
+        sin(theta)*Derivative(f(r, theta), r) + cos(theta)*Derivative(f(r, theta), theta)/r
+
+    """
+    independent_variable_differentials = generalised_chain_rule(w, variables, *args)
+    differentials = [(w(*variables.keys()).diff(xi)) for xi in variables.keys()]
+    return {
+        a: b.simplify()
+        for a, b in sp.solve(independent_variable_differentials, differentials).items()
+    }
 
 
 if __name__ == "__main__":
