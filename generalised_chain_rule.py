@@ -198,7 +198,7 @@ def chain_rule_derivative(expr: sp.Expr, variables: dict[sp.Symbol, sp.Expr], *a
         expr (sp.Expr): function to be differentiated
         variables (dict[sp.Symbol, sp.Expr]): dictionary of variables
             with their function definitions
-        args: indepent variables
+        args: independent variables
 
     Examples:
     >>> x, y, z, u, v = sp.symbols("x, y, z, u, v", real=True)
@@ -226,7 +226,13 @@ def chain_rule_derivative(expr: sp.Expr, variables: dict[sp.Symbol, sp.Expr], *a
     result = [
         sp.Eq(
             eqn.lhs,
-            eqn.rhs.subs(f(*variables.keys()), expr).doit().subs(variables).simplify(),
+            eqn.rhs.subs(
+                f(*variables.keys()),
+                expr,
+            )
+            .doit()
+            .subs(variables)
+            .simplify(),  # type: ignore
         )
         for eqn in generalised_chain_rule(f, variables, *args)
     ]
