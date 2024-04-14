@@ -59,25 +59,8 @@
    - This function calculates the Hessian matrix of `f`, which is
    a matrix containing all second-order partial derivatives.
 
-**9. is_minimum(f, x, y, a, b):** (not explained in the prompt)
-   - This function checks if a point (`a`, `b`) is a local minimum of
-   `f` using the conditions for positive second-order partial derivatives
-   and a positive discriminant.
-   - It returns a boolean indicating if it's a local minimum.
 
-**10. is_maximum(f, x, y, a, b):** (not explained in the prompt)
-   - This function checks if a point (`a`, `b`) is a local maximum of
-   `f` using the conditions for negative second-order partial
-   derivatives and a positive discriminant.
-   - It returns a boolean indicating if it's a local maximum.
-
-**11. is_saddle_point(f, x, y, a, b):** (not explained in the prompt)
-   - This function checks if a point (`a`, `b`) is a saddle point of `f`.
-   - It uses conditions based on the signs of the second-order partial
-   derivatives and the mixed derivative to determine a saddle point.
-   - It returns a boolean indicating if it's a saddle point.
-
-**12. if __name__ == "__main__":** (not shown in the code snippet)
+**0. if __name__ == "__main__":** (not shown in the code snippet)
    - This block is likely used for internal testing purposes.
    It typically includes calls to `doctest.testmod` to run docstring
    examples
