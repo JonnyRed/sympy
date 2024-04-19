@@ -10,18 +10,19 @@ The functions in this module include:
 - `vector(frame, rx, ry, rz=0)`: Creates a vector in a specified reference frame with components defined along the x, y, and z axes.
 - `vector_cos(frame, magnitude, theta, phi, psi=sp.pi / 2)`: Creates a vector with components defined by cosine values in a specified reference frame.
 - `vector_to_list(frame, v)`: Converts a vector in a reference frame to a list of components.
-- `vector_line(start, finish)`: Calculates the vector difference between two points, representing a line segment.
-- `vector_line_eqn(start, finish, lamda)`: Calculates a vector equation for a line segment in a specified reference frame.
-- `angle_between_vectors(a, b)`: Calculates the angle in radians between two vectors.
+- `vector_line(start, finish)`: Calculates the vector difference between
+two points, representing a line segment.
+- `vector_line_eqn(start, finish, lamda)`: Calculates a vector equation
+for a line segment in a specified reference frame.
+- `angle_between_vectors(a, b)`: Calculates the angle in radians between
+two vectors.
 - `create_3d_components(*args)`: Creates 3D components for given symbols.
-- `create_vectors(frame, *args)`: Creates a list of vectors in a specified reference frame.
-- `print_aligned_latex_equations(*args)`: Prints aligned LaTeX equations using IPython display.
+- `create_vectors(frame, *args)`: Creates a list of vectors in a specified
+reference frame.
+- `print_aligned_latex_equations(*args)`: Prints aligned LaTeX equations
+using IPython display.
 
 ## Usage
-
-### Installation
-
-Before using the module, ensure you have the required dependencies installed. You can install them via conda and environment.yml
 
 ### Example Usage
 
@@ -51,14 +52,35 @@ vectors = create_vectors(N, "a", "b")
 print_aligned_latex_equations(*vectors)
 ```
 
-### Testing
+## critical_points_2d.py
 
-The module also includes a set of unit tests using the doctest module to verify that the functions work as expected. To run the tests, execute the module as a script:
+This Python module provides functions for finding and classif(y)ing critical
+points of functions in two dimensions. The module uses the sympy library
+to perform symbolic calculations.
 
-```bash
-python sympy_vector_tools.py
-```
+### Functions
 
-## Conclusion
+- `find_critical_points(fx, fy, x, y)`
+Finds the critical points of a function $f(x, y)$ by solving the system of
+equations $fx = 0$ and $fy = 0$, where $fx$ and $fy$ are the partial derivatives
+of $f$ with respect to $x$ and $y$, respectively.
 
-This module provides a powerful set of tools for working with vectors and reference frames in three-dimensional space. It can be utilized in various applications such as physics, engineering, and computer graphics. By leveraging the Sympy physics vector module, it enables symbolic vector operations, making it suitable for analytical calculations and derivations.
+Parameters
+fx: A sympy expression representing the partial derivative of f with respect to x.
+fy: A sympy expression representing the partial derivative of f with respect to y.
+x: A sympy symbol representing the variable x.
+y: A sympy symbol representing the variable y.
+Returns
+A list of tuples, where each tuple contains the coordinates of a critical point.
+
+classif(y)_critical_point(f, x, y, point)
+Classifies a critical point of a function f(x, y) as a local minimum,
+local maximum, or saddle point.
+
+Parameters
+f: A sympy expression representing the function f(x, y).
+x: A sympy symbol representing the variable x.
+y: A sympy symbol representing the variable y.
+point: A tuple containing the coordinates of the critical point.
+Returns
+A string indicating the type of critical point: 'local minimum', 'local maximum', or 'saddle point'.
