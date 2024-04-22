@@ -1,43 +1,50 @@
-# This module provides various utility functions for working with 
-# Sympy and Sympy's vector module.
-# 
-# It includes functions for creating vectors, calculating the angle 
-# between vectors, and defining lines and planes in 3D space. 
-# It also includes functions for printing aligned LaTeX equations.
-#
-# The module uses Sympy's vector module for vector operations and 
-# Sympy's solvers module for solving # equations. It also uses 
-# IPython's display module for displaying LaTeX equations.
-#
-# The module includes the following functions:
-#
-#   * `vector(frame: sv.CoordSys3D, rx, ry, rz=0) -> sv.Vector`: 
-#     Creates a vector in a specified reference frame.
-#   * `vector_cos(frame: sv.CoordSys3D, magnitude, theta, phi, psi=sp.pi / 2) -> sv.Vector`: 
-#     Creates a vector with components defined by cosine values in a 
-#     specified reference frame.
-#   * `vector_to_list(frame: sv.CoordSys3D, v: sv.Vector) -> List[float]`: 
-#      Converts a vector in a reference frame to a list of components.
-#   * `create_3d_components(*args) -> List[Tuple[sympy.Symbol, sympy.Symbol, sympy.Symbol]]`:
-#     Creates 3D components for given symbols.
-#   * `create_vectors(frame: sv.CoordSys3D, *args) -> List[sv.Vector]`: 
-#     Creates a list of vectors in a specified reference frame.
-#   * `angle_between_two_vectors(frame: sv.CoordSys3D, v1: sv.Vector, v2: sv.Vector) -> sympy.Symbol`:
-#     Calculates the smallest angle between two vectors.
-#   * `cosine_of_angle_between_vectors(v: sv.CoordSys3D, u: sv.CoordSys3D, theta: sympy.Symbol) -> sympy.Symbol`:
-#     Calculates the cosine of the angle between two vectors.
-#   * `square_of_sine_of_angle_between_vectors(v: sv.CoordSys3D, u: sv.CoordSys3D, theta: sympy.Symbol) -> sympy.Expr`:
-#     Calculates the square of the sine of the angle between two vectors.
-#   * `vector_line(start: sv.Vector, finish: sv.Vector) -> sv.Vector`: Calculates the vector line through two vectors.
-#   * `vector_line_eqn(frame: sv.CoordSys3D, start: sv.Vector, finish: sv.Vector, lamda: sympy.Symbol) -> sv.Vector`:
-#     Calculates the vector equation for a line segment in a specified reference frame.
-#   * `vector_plane(frame: sv.CoordSys3D, r1: sv.Vector, r2: sv.Vector, r3: sv.Vector) -> Tuple[sympy.Eq, Tuple[sympy.Symbol, sympy.Symbol, sympy.Symbol]]`:
-#     Defines a plane through three non-collinear points.
-#   * `laplacian(f: sympy.Expr) -> sympy.Expr`: Calculates the Laplacian of an expression.
-#   * `print_aligned_latex_equations(*args)`: Prints LaTeX equations in an aligned format.
-#
-# The module also includes various constants and symbols used throughout 
-# the code.
+"""
+This module provides various utility functions for working with
+Sympy and Sympy's vector module.
+
+It includes functions for creating vectors, calculating the angle
+between vectors, and defining lines and planes in 3D space.
+It also includes functions for printing aligned LaTeX equations.
+
+The module uses Sympy's vector module for vector operations and
+Sympy's solvers module for solving # equations. It also uses
+IPython's display module for displaying LaTeX equations.
+
+The module includes the following functions:
+
+  * vector(frame: sv.CoordSys3D, rx, ry, rz=0) -> sv.Vector:
+    Creates a vector in a specified reference frame.
+  * vector_cos(frame: sv.CoordSys3D, magnitude, theta, phi, psi=sp.pi / 2) -> sv.Vector:
+    Creates a vector with components defined by cosine values in a
+    specified reference frame.
+  * vector_to_list(frame: sv.CoordSys3D, v: sv.Vector) -> List[float]:
+     Converts a vector in a reference frame to a list of components.
+  * create_3d_components(*args) -> List[Tuple[sympy.Symbol, sympy.Symbol, sympy.Symbol]]:
+    Creates 3D components for given symbols.
+  * create_vectors(frame: sv.CoordSys3D, *args) -> List[sv.Vector]:
+        Creates a list of vectors in a specified reference frame.
+  * angle_between_two_vectors(frame: sv.CoordSys3D, v1: sv.Vector, v2: sv.Vector) -> sympy.Symbol:
+    Calculates the smallest angle between two vectors.
+  * cosine_of_angle_between_vectors(v: sv.CoordSys3D, u: sv.CoordSys3D, theta: sympy.Symbol)
+    -> sympy.Symbol:
+        Calculates the cosine of the angle between two vectors.
+  * square_of_sine_of_angle_between_vectors(v: sv.CoordSys3D, u: sv.CoordSys3D, theta: sympy.Symbol)
+    -> sympy.Expr:
+       Calculates the square of the sine of the angle between two vectors.
+  * vector_line(start: sv.Vector, finish: sv.Vector) -> sv.Vector:
+    Calculates the vector line through two vectors.
+  * vector_line_eqn(frame: sv.CoordSys3D, start: sv.Vector, finish: sv.Vector, lamda: sympy.Symbol)
+    -> sv.Vector:
+        Calculates the vector equation for a line segment in a specified reference frame.
+  * vector_plane(frame: sv.CoordSys3D, r1: sv.Vector, r2: sv.Vector, r3: sv.Vector)
+    -> Tuple[sympy.Eq, Tuple[sympy.Symbol, sympy.Symbol, sympy.Symbol]]:
+        Defines a plane through three non-collinear points.
+  * laplacian(f: sympy.Expr) -> sympy.Expr: Calculates the Laplacian of an expression.
+  * print_aligned_latex_equations(*args): Prints LaTeX equations in an aligned format.
+
+The module also includes various constants and symbols used throughout
+the code.
+"""
 
 import IPython.display as ipd
 import sympy as sp
