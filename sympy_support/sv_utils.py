@@ -53,6 +53,7 @@ import sympy.vector as sv
 sp.init_printing()
 
 
+
 HALF = sp.S.Half
 ZERO = sp.S.Zero
 ONE = sp.S.One
@@ -100,7 +101,7 @@ def vector(frame: sv.CoordSys3D, rx, ry, rz=0) -> sv.Vector:
     """
     return rx * frame.i + ry * frame.j + rz * frame.k
 
-
+# pylint: disable=C0301
 def vector_cos(frame: sv.CoordSys3D, magnitude, theta, phi, psi=sp.pi / 2) -> sv.Vector:
     """
     Create a vector with components defined by cosine values in a specified reference frame.
@@ -217,7 +218,7 @@ def create_vectors(frame: sv.CoordSys3D, *args) -> list:
     return [vector(frame, *c) for c in create_3d_components(*args)]
 
 
-def angle_between_two_vectors(frame: sv.CoordSys3D, v1: sv.Vector, v2: sv.Vector):
+def angle_between_two_vectors(v1: sv.Vector, v2: sv.Vector):
     """Smallest angle between two vectors
 
     Args:The reference frame in which the vectors are defined.
@@ -356,7 +357,7 @@ def vector_line(start: sv.Vector, finish: sv.Vector) -> sv.Vector:
 
 
 def vector_line_eqn(
-    frame: sv.CoordSys3D, start: sv.Vector, finish: sv.Vector, lamda: sp.Symbol
+    start: sv.Vector, finish: sv.Vector, lamda: sp.Symbol
 ) -> sv.Vector:
     """
     Calculate a vector equation for a line segment in a specified reference frame.
@@ -375,12 +376,12 @@ def vector_line_eqn(
         >>> start = sv.Vector.zero
         >>> finish = 3 * A.i + 4 * A.j + 5 * A.k
         >>> lamda = sp.symbols('lambda')
-        >>> vector_line_eqn(A, start, finish, lamda)
+        >>> vector_line_eqn(start, finish, lamda)
         3*lambda*A.i + 4*lambda*A.j + 5*lambda*A.k
 
         >>> start = 2 * A.i - A.j
         >>> finish = 4 * A.j + 3 * A.k
-        >>> vector_line_eqn(A, start, finish, lamda)
+        >>> vector_line_eqn(start, finish, lamda)
         (2 - 2*lambda)*A.i + (5*lambda - 1)*A.j + 3*lambda*A.k
 
     """
