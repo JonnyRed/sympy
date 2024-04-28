@@ -28,8 +28,9 @@ $$
 
 $$\delta_{ij}\delta_{jk} = \delta_{ik}$$
 
-Ensure that the above relationship is valid for range of integers
-up until $n$
+Ensure that the above relationship is valid for range of integers up until $n$
+
+`test_kronecker_product` will ensure the above identity is valid for a range of small indices.
 
 ```python
 >>> import test_kronecker_identities as tki
