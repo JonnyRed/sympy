@@ -13,15 +13,16 @@ def kronecker_product(n: int):
     delta_ij*delta_jk = delta_ik 
 
     Parameters:
-    n (int): The upper limit for the range of indices.
+        n (int): The upper limit for the range of indices.
 
     Yields:
-    tuple: A tuple containing the Kronecker delta of `i` and `k`, 
-    and the summation of delta_ij*delta_jk.
+        tuple: A tuple containing the Kronecker delta of `i` and `k`, 
+        and the summation of delta_ij*delta_jk.
 
    Examples:
     >>> list(kronecker_product(2))
     [(1, 1), (0, 0), (0, 0), (1, 1)]
+    
     """
     for i in range(1, n+1):
         for k in range(1, n+1):
@@ -31,13 +32,16 @@ def kronecker_product(n: int):
                     for j in range(1, n+1))
             yield delta_ik, sigma
 
-def test_kronecker_product(n: int):
+def test_kronecker_product(n: int)-> bool:
     """
-    Test the kronecker_product function to ensure it works correctly.
+        Test the kronecker_product function is satisfied.
 
     Parameters:
-    n (int): The upper limit for the range of indices to test.
+        n (int): The upper limit for the range of indices to test.
 
+    Returns:
+    True if the kronecker identity is satisfied false otherwise
+    
     Examples:
     >>> test_kronecker_product(2)
     True
