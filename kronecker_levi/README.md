@@ -102,6 +102,32 @@ LeviCivita(i, j, k)
 
 ```
 
+$$\epsilon_{ijk} = \frac{1}{2} (i-j)(j-k)(k-i)$$
+
+```python
+>>> from kronecker_levi.kronecker_delta import generate_tuples
+>>> from sympy import LeviCivita
+>>> all ( 
+...   (LeviCivita(i, j, k)==(i-j)*(j-k)*(k-i)/2)
+...    for i, j, k in generate_tuples(3)
+... )
+True
+
+```
+
+$$\varepsilon_{ijk} = \varepsilon_{jki} = \varepsilon_{kij}$$
+
+```python
+>>> from kronecker_levi.kronecker_delta import generate_tuples
+>>> from sympy import LeviCivita
+>>> all ( 
+...   (LeviCivita(i, j, k)==LeviCivita(j, k, i)==LeviCivita(k, i, j))
+...    for i, j, k in generate_tuples(3)
+... )
+True
+
+```
+
 ## Einstein summation convention
 
 The Einstein summation convention(ESC) is a convention used in mathematics
