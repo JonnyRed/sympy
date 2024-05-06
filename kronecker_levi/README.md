@@ -128,6 +128,53 @@ True
 
 ```
 
+$$\epsilon_{ijk} = -\epsilon_{jik}, \;
+    \epsilon_{ijk} = -\epsilon_{ikj},  \;
+    \epsilon_{ijk} = -\epsilon_{kji}$$
+
+```python
+>>> from kronecker_levi.kronecker_delta import generate_tuples
+>>> from sympy import LeviCivita
+>>> all ( 
+... LeviCivita(i, j, k) == -LeviCivita(j, i, k) == -LeviCivita(k, j, i) 
+...    for i, j, k in generate_tuples(3)
+... )
+True
+
+```
+
+$$\epsilon_{ijk}\epsilon_{imn} =  \delta_{jm} \delta_{kn} - \delta_{jn} \delta_{km}$$
+
+```python
+>>> from itertools import product
+>>> from sympy import Eijk, KroneckerDelta
+>>> from kronecker_levi.kronecker_delta import generate_tuples
+>>> all(
+...    sum(Eijk(i, j, k) * Eijk(i, m, n) for i in range(1, 4))
+...    == KroneckerDelta(j, m) * KroneckerDelta(k, n)
+...    - KroneckerDelta(j, n) * KroneckerDelta(k, m)
+...    for (_, j, k), (_, m, n) in product(generate_tuples(3), repeat=2)
+... )
+True
+
+```
+
+"""
+
+$$\epsilon_{ijk} \epsilon_{ijn} = 2 \delta_{kn}$$
+
+```python
+>>> from sympy import Eijk, KroneckerDelta, summation
+>>> all(
+...    (
+...     summation(Eijk(i, j, k)*Eijk(i, j, n), (i, 1, 3), (j, 1, 3))
+...        == 2*KroneckerDelta(k,n) 
+...    ) for k, n in product(range(1,4), repeat=2)
+... )
+True
+
+```
+
 ## Einstein summation convention
 
 The Einstein summation convention(ESC) is a convention used in mathematics
