@@ -175,6 +175,15 @@ True
 
 ```
 
+$$\epsilon_{ijk}\epsilon_{ijk} = 6$$
+
+```python
+>>> from sympy import Eijk, summation
+>>> summation(Eijk(i, j, k)*Eijk(i, j, k), (i, 1, 3), (j, 1, 3), (k, 1, 3))
+6
+
+```
+
 ## Einstein summation convention
 
 The Einstein summation convention(ESC) is a convention used in mathematics
