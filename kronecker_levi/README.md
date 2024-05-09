@@ -175,12 +175,35 @@ True
 
 ```
 
+
+
 $$\epsilon_{ijk}\epsilon_{ijk} = 6$$
 
 ```python
 >>> from sympy import Eijk, summation
 >>> summation(Eijk(i, j, k)*Eijk(i, j, k), (i, 1, 3), (j, 1, 3), (k, 1, 3))
 6
+
+```
+
+$$
+\epsilon_{ijk}\epsilon_{lmn}  =
+      \begin{vmatrix}
+         \delta_{il} & \delta_{im} & \delta_{in}\\
+         \delta_{jl} & \delta_{jm} & \delta_{jn}\\
+         \delta_{kl} & \delta_{km} & \delta_{kn}
+      \end{vmatrix}
+$$
+
+```python
+
+>>> from kronecker_delta import generate_tuples, kronecker_delta_matrix
+>>> all([
+...    (Eijk(*a)*Eijk(*b) == kronecker_delta_matrix(*a, *b))
+...    for a in generate_tuples(3)
+...    for b in generate_tuples(3)
+... ])
+True
 
 ```
 
