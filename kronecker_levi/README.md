@@ -253,3 +253,31 @@ Here are the key points of the Einstein summation convention:
 
 Two interesting examples of  the Einstein summation convention
 $$ \delta_{i i} = 3 \text{ and } \varepsilon_{ijk}\varepsilon_{ijk} = 6$$
+
+### Identities
+
+$$a_{ij} (x_j + y_j) \equiv a_{ij} x_j + a_{ij}y_j$$
+
+```python
+>>> from sympy import Matrix
+>>> n = 3
+>>> a = symbols(f"a1:{n+1}(1:{n+1})", real=True)
+>>> x = symbols(f"x1:{n+1}", real=True)
+>>> y = symbols(f"y1:{n+1}", real=True)
+>>> A = Matrix(3, 3, a)
+
+>>> (
+... list(sum(A[i,j]*(x[j] + y[j]) for j in range(0,n)).expand() 
+...         for i in range(0, n)
+... )
+...   == 
+... 
+... list(sum(A[i,j]*x[j] for j in range(0, n)) 
+...            + sum(A[i,j]*y[j] for j in range(0, n))
+...                for i in range(0,n)
+... )
+... )
+True
+
+```
+
