@@ -175,8 +175,6 @@ True
 
 ```
 
-
-
 $$\epsilon_{ijk}\epsilon_{ijk} = 6$$
 
 ```python
@@ -270,14 +268,51 @@ $$a_{ij} (x_j + y_j) \equiv a_{ij} x_j + a_{ij}y_j$$
 ... list(sum(A[i,j]*(x[j] + y[j]) for j in range(0,n)).expand() 
 ...         for i in range(0, n)
 ... )
+... 
 ...   == 
 ... 
 ... list(sum(A[i,j]*x[j] for j in range(0, n)) 
 ...            + sum(A[i,j]*y[j] for j in range(0, n))
 ...                for i in range(0,n)
+... ))
+True
+
+```
+
+ $$a_{ij} x_i y_j \equiv a_{ij} y_j x_i$$
+
+```python
+>>> (sum(A[i,j]*(x[i]*y[j])  
+...    for j in range(0,n) 
+...    for i in range(0,n)
 ... )
+...
+...   == 
+...
+... sum(A[i,j]*(y[j]*x[i])  
+...    for j in range(0,n) 
+...    for i in range(0,n)
+... ) 
 ... )
 True
 
 ```
 
+$$a_{ij} x_i y_j \equiv a_{ji} y_i x_j$$
+
+```python
+>>> (sum(A[i,j]*(x[i]*y[j])  
+...    for j in range(0,n) 
+...    for i in range(0,n)
+... )
+...
+...   == 
+...
+... sum(A[j,i]*(y[i]*x[j])  
+...    for j in range(0,n) 
+...    for i in range(0,n)
+... ) 
+... )
+True
+
+```
