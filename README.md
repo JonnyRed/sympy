@@ -1,6 +1,8 @@
 # Introduction
 
-This is a collection of `sympy` examples and notes. The purpose of this is to provide a cheat sheet summary of the techniques used in solving `sympy` problems from
+This is a collection of `sympy` examples and notes. The purpose of this 
+is to provide a cheat sheet summary of the techniques used in solving 
+`sympy` problems from
 
 The purpose of this is to provide a cheat sheet summary of the techniques
 used in solving `sympy` problems from
