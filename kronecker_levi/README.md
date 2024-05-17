@@ -1,4 +1,4 @@
-# Math cheat sheet notes
+# kronecker delta notes
 
 ## Kronecker Delta Levi-Civita
 
@@ -17,21 +17,25 @@ $$
         \end{cases}
 $$
 
+This expresses the orthogonality of the Kronecker delta. It equals 1 when $i = k$ and $0$ otherwise.
+
+Ensure that the above relationship is valid for range of integers up until $n$
+
 ```python
->>> import kronecker_levi.kronecker_delta as kd
->>> kd.kronecker_delta(1, 1)
+>>> from sympy import KroneckerDelta
+>>> KroneckerDelta(1, 1)
 1
 
->>> kd.kronecker_delta(1, 2)
+>>> KroneckerDelta(1, 2)
 0
 
->>> kd.kronecker_delta(2, 1)
+>>> KroneckerDelta(2, 1)
 0
 
->>> kd.kronecker_delta(0, 0)
+>>> KroneckerDelta(0, 0)
 1
 
->>> kd.kronecker_delta(-1, 1)
+>>> KroneckerDelta(-1, 1)
 0
 
 ```
@@ -39,20 +43,16 @@ $$
 **Kronecker Delta Summation Property**:
 
 $$
-\delta_{ij}\delta_{jk} = \delta_{ik}$$
+\delta_{ij}\delta_{jk} = \delta_{ik}
+$$
 
-This expresses the orthogonality of the Kronecker delta. It equals 1 when $i = k$ and $0$ otherwise.
-
-Ensure that the above relationship is valid for range of integers up until $n$
-
-`test_kronecker_product` will ensure the above identity is valid for a range of small indices.
+`summation property` will ensure the above identity is valid for a range of small indices.
 
 ```python
->>> import test_kronecker_identities as tki
->>> tki.test_kronecker_product(2)
-True
-
->>> tki.test_kronecker_product(3)
+>>> all( 
+...   sum( KroneckerDelta(i,j)*KroneckerDelta(j,k) for j in range(1,4) )
+...      == KroneckerDelta(i,k) for i in range(1,4) for k in range(1,4) 
+... )
 True
 
 ```
@@ -118,7 +118,6 @@ True
 $$\varepsilon_{ijk} = \varepsilon_{jki} = \varepsilon_{kij}$$
 
 ```python
->>> from kronecker_levi.kronecker_delta import generate_tuples
 >>> from sympy import LeviCivita
 >>> all ( 
 ...   (LeviCivita(i, j, k)==LeviCivita(j, k, i)==LeviCivita(k, i, j))
@@ -133,7 +132,6 @@ $$\epsilon_{ijk} = -\epsilon_{jik}, \;
     \epsilon_{ijk} = -\epsilon_{kji}$$
 
 ```python
->>> from kronecker_levi.kronecker_delta import generate_tuples
 >>> from sympy import LeviCivita
 >>> all ( 
 ... LeviCivita(i, j, k) == -LeviCivita(j, i, k) == -LeviCivita(k, j, i) 
@@ -148,7 +146,6 @@ $$\epsilon_{ijk}\epsilon_{imn} =  \delta_{jm} \delta_{kn} - \delta_{jn} \delta_{
 ```python
 >>> from itertools import product
 >>> from sympy import Eijk, KroneckerDelta
->>> from kronecker_levi.kronecker_delta import generate_tuples
 >>> all(
 ...    sum(Eijk(i, j, k) * Eijk(i, m, n) for i in range(1, 4))
 ...    == KroneckerDelta(j, m) * KroneckerDelta(k, n)
@@ -195,7 +192,7 @@ $$
 
 ```python
 
->>> from kronecker_delta import generate_tuples, kronecker_delta_matrix
+>>> from kronecker_levi.kronecker_delta import generate_tuples, kronecker_delta_matrix
 >>> all([
 ...    (Eijk(*a)*Eijk(*b) == kronecker_delta_matrix(*a, *b))
 ...    for a in generate_tuples(3)
