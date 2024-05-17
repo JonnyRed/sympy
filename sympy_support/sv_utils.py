@@ -232,32 +232,32 @@ def angle_between_two_vectors(v1: sv.Vector, v2: sv.Vector):
         >>> N = sv.CoordSys3D('N')
         >>> a = 3*N.i + 4*N.j
         >>> b = 2*N.i - N.j
-        >>> round(angle_between_two_vectors(N, a, b).evalf(), 4)
+        >>> round(angle_between_two_vectors(a, b).evalf(), 4)
         0.1789
 
         >>> v1 = N.i
         >>> v2 = N.j
-        >>> angle_between_two_vectors(N, v1, v2)
+        >>> angle_between_two_vectors(v1, v2)
         0
 
         >>> v3 = N.i + N.j + N.k
-        >>> angle_between_two_vectors(N, v1, v3)
+        >>> angle_between_two_vectors(v1, v3)
         sqrt(3)/3
 
         >>> a = N.i + N.j
         >>> b = 2*N.i + 2*N.j
-        >>> angle_between_two_vectors(N, a, b)
+        >>> angle_between_two_vectors(a, b)
         1
 
         >>> a = 2*N.i - 4*N.j - 1*N.k
         >>> b = 5 * N.j +2*N.k
-        >>> angle_between_two_vectors(N, a, b)
+        >>> angle_between_two_vectors(a, b)
         -22*sqrt(609)/609
 
         >>> import math
         >>> N = sv.CoordSys3D('N')
         >>> vec_A, vec_B = 5*N.i - 2*N.j + 4*N.k, 3*N.i + 1*N.j + 7*N.k
-        >>> cos_angle = angle_between_two_vectors(N, vec_A, vec_B)
+        >>> cos_angle = angle_between_two_vectors(vec_A, vec_B)
         >>> round(math.degrees(sp.acos(cos_angle)), 1) # doctest: +NORMALIZE_WHITESPACE
         37.3
 
@@ -266,13 +266,13 @@ def angle_between_two_vectors(v1: sv.Vector, v2: sv.Vector):
 
 
 def cosine_of_angle_between_vectors(
-    v: sv.CoordSys3D, u: sv.CoordSys3D, theta: sp.Symbol
+    v: vector, u: vector, theta: sp.Symbol
 ) -> sp.Symbol:
     """Using the cosine rule determine the angle between vectors.
 
     Args:
-        v (sv.CoordSys3D): first vector
-        u (sv.CoordSys3D): second vector
+        v (vector): first vector
+        u (vector): second vector
         theta (sp.Symbol): symbol for angle between two vectors
 
     Returns:
@@ -311,13 +311,13 @@ def cosine_of_angle_between_vectors(
 
 
 def square_of_sine_of_angle_between_vectors(
-    v: sv.CoordSys3D, u: sv.CoordSys3D, theta: sp.Symbol
+    v: vector, u: vector, theta: sp.Symbol
 ) -> sp.Expr:
     """Find the square of the sine of angle between 2 vectors
 
     Args:
-        v (sv.CoordSys3D): first vector
-        u (sv.CoordSys3D): second vector
+        v (vector): first vector
+        u (vector): second vector
         theta (sp.Symbol): symbol for angle between two vectors
 
     Returns:
