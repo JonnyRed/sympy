@@ -9,6 +9,9 @@
 >>> print(list(v for v in N))
 [N.e_1, N.e_2, N.e_3]
 
+>>> print(list(enumerate(N))) 
+[(0, N.e_1), (1, N.e_2), (2, N.e_3)]
+
 >>> print(N.base_vectors())
 (N.e_1, N.e_2, N.e_3)
 
@@ -81,3 +84,7 @@ $$
 True
 
 ```
+
+$$
+\mathbf{A} \times \mathbf{B} = \epsilon_{ijk} a_i b_j \mathbf{e_k}
+$$
