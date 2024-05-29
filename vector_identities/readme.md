@@ -58,6 +58,8 @@ c_1*N.e_1 + c_2*N.e_2 + c_3*N.e_3
 
 ## Identities
 
+$$ [\mathbf A]_i \; \text {is  component of A} $$
+
 $$
 \mathbf{e_i}\cdot\mathbf{e_j} = \delta_{ij}
 $$
@@ -135,12 +137,14 @@ True
 
 ```
 
+
+
 $$
 \mathbf{A} \times \mathbf{B} = \epsilon_{ijk} a_i b_j \mathbf{e_k}
 $$
 
 $$
-\mathbf{A} \times \mathbf{B} = \mathbf{e_i} \epsilon_{ijk} a_j b_k 
+\mathbf{A} \times \mathbf{B} = \mathbf{e_i} \epsilon_{ijk} a_j b_k
 $$
 
 ```python
@@ -157,6 +161,27 @@ $$
 ...            for j in range(1,4)), start=v_zero)) 
 ...    for i in range(1,4)), start=v_zero
 ... ))  
+True
+
+```
+
+### Scalar Triple Product
+
+$$\mathbf A \cdot ( \mathbf B \times \mathbf C ) = \mathbf C \cdot ( \mathbf A \times \mathbf B ) = \mathbf B \cdot ( \mathbf C \times \mathbf A )
+$$
+
+$$
+a_i \; [ \mathbf B \times \mathbf C ]_i 
+    = a_i \epsilon_{ijk} b_j c_k = c_k \epsilon_{kij} a_i b_j = c_k [\mathbf A \times \mathbf B]_k 
+$$
+
+```python
+>>> (vector_a.dot(vector_b.cross(vector_c)).expand()
+...    == vector_c.dot(vector_a.cross(vector_b)).expand())
+True
+
+>>> (vector_c.dot(vector_a.cross(vector_b)).expand()
+...    == vector_b.dot(vector_c.cross(vector_a)).expand())
 True
 
 ```
