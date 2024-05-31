@@ -56,13 +56,8 @@ a_1*N.e_1 + a_2*N.e_2 + a_3*N.e_3
 >>> print(vector_b)
 b_1*N.e_1 + b_2*N.e_2 + b_3*N.e_3
 
->>> vector_c = vector(N, c)
->>> print(vector_c)
+>>> print(vector(N, c))
 c_1*N.e_1 + c_2*N.e_2 + c_3*N.e_3
-
->>> vector_d = vector(N, d)
->>> print(vector_d)
-d_1*N.e_1 + d_2*N.e_2 + d_3*N.e_3
 
 
 ```
@@ -147,6 +142,8 @@ $$
 True
 
 ```
+
+
 
 $$
 \mathbf{A} \times \mathbf{B} = \epsilon_{ijk} a_i b_j \mathbf{e_k}
