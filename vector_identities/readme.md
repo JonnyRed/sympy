@@ -38,31 +38,20 @@
 >>> print(c)
 (c_1, c_2, c_3)
 
->>> d = symbols("d_1:4", real=True)
->>> print(d)
-(d_1, d_2, d_3)
-
 >>> def vector(N, components):
 ...     return sum(
 ...         starmap(mul, zip(components, N.base_vectors())), 
 ...         start=sv.Vector.zero
 ...     )
 
->>> vector_a = vector(N, a)
->>> print(vector_a)
+>>> print(vector(N, a))
 a_1*N.e_1 + a_2*N.e_2 + a_3*N.e_3
 
->>> vector_b = vector(N, b)
->>> print(vector_b)
+>>> print(vector(N, b))
 b_1*N.e_1 + b_2*N.e_2 + b_3*N.e_3
 
->>> vector_c = vector(N, c)
->>> print(vector_c)
+>>> print(vector(N, c))
 c_1*N.e_1 + c_2*N.e_2 + c_3*N.e_3
-
->>> vector_d = vector(N, d)
->>> print(vector_d)
-d_1*N.e_1 + d_2*N.e_2 + d_3*N.e_3
 
 
 ```
@@ -148,6 +137,8 @@ True
 
 ```
 
+
+
 $$
 \mathbf{A} \times \mathbf{B} = \epsilon_{ijk} a_i b_j \mathbf{e_k}
 $$
@@ -180,8 +171,8 @@ $$\mathbf A \cdot ( \mathbf B \times \mathbf C ) = \mathbf C \cdot ( \mathbf A \
 $$
 
 $$
-a_i \; [ \mathbf B \times \mathbf C ]_i
-    = a_i \epsilon_{ijk} b_j c_k = c_k \epsilon_{kij} a_i b_j = c_k [\mathbf A \times \mathbf B]_k
+a_i \; [ \mathbf B \times \mathbf C ]_i 
+    = a_i \epsilon_{ijk} b_j c_k = c_k \epsilon_{kij} a_i b_j = c_k [\mathbf A \times \mathbf B]_k 
 $$
 
 ```python
@@ -191,71 +182,6 @@ True
 
 >>> (vector_c.dot(vector_a.cross(vector_b)).expand()
 ...    == vector_b.dot(vector_c.cross(vector_a)).expand())
-True
-
-```
-
-### Vector Triple Product
-
-$$\mathbf A \times ( \mathbf B \times \mathbf C ) =
-(\mathbf A \cdot \mathbf C) \mathbf B - (\mathbf A \cdot B) \mathbf C
-$$
-
-```python
->>> ((vector_a.cross(vector_b.cross(vector_c))).expand()
-...    ==
-... (vector_a.dot(vector_c)*vector_b - vector_a.dot(vector_b)*vector_c).expand())
-True
-
-```
-
-### Scalar quadruple product
-
-$$
-( \mathbf A \times  \mathbf B) \cdot ( \mathbf C \times  \mathbf D)
-  = (\mathbf A \cdot  \mathbf C) (\mathbf B \cdot  \mathbf D)
-  - (\mathbf A \cdot  \mathbf D) (\mathbf B \cdot  \mathbf C)
-
-$$
-
-```python
->>> ((vector_a.cross(vector_b)).dot(vector_c.cross(vector_d)).expand()
-...    == (vector_a.dot(vector_c)*vector_b.dot(vector_d) 
-...        - vector_a.dot(vector_d)*vector_b.dot(vector_c)).expand())
-True
-
-```
-
-### Jacobi Identity
-
-$$
-\mathbf A \times ( \mathbf B \times \mathbf C )
-+ \mathbf B \times ( \mathbf C \times \mathbf A )
-+ \mathbf C \times ( \mathbf A \times \mathbf B )
-= 0
-$$
-
-```python
->>> ((vector_a.cross(vector_b.cross(vector_c))
-...    + vector_b.cross(vector_c.cross(vector_a))
-...    + vector_c.cross(vector_a.cross(vector_b))).expand()
-...    == v_zero)
-True
-
-```
-
-### Lagrange’s identity
-
-$$
-|\mathbf A \times \mathbf B |^2
- =  |\mathbf A|^2 |\mathbf B|^2
- - (\mathbf A \cdot \mathbf B  )^2
-$$
-
-```python
->>> (((vector_a.cross(vector_b)).magnitude()**2).expand()
-...    == (vector_a.magnitude()**2*vector_b.magnitude()**2
-...        - vector_a.dot(vector_b)**2).expand()) # doctest: +NORMALIZE_WHITESPACE
 True
 
 ```
