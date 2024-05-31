@@ -38,20 +38,31 @@
 >>> print(c)
 (c_1, c_2, c_3)
 
+>>> d = symbols("d_1:4", real=True)
+>>> print(d)
+(d_1, d_2, d_3)
+
 >>> def vector(N, components):
 ...     return sum(
 ...         starmap(mul, zip(components, N.base_vectors())), 
 ...         start=sv.Vector.zero
 ...     )
 
->>> print(vector(N, a))
+>>> vector_a = vector(N, a)
+>>> print(vector_a)
 a_1*N.e_1 + a_2*N.e_2 + a_3*N.e_3
 
->>> print(vector(N, b))
+>>> vector_b = vector(N, b)
+>>> print(vector_b)
 b_1*N.e_1 + b_2*N.e_2 + b_3*N.e_3
 
->>> print(vector(N, c))
+>>> vector_c = vector(N, c)
+>>> print(vector_c)
 c_1*N.e_1 + c_2*N.e_2 + c_3*N.e_3
+
+>>> vector_d = vector(N, d)
+>>> print(vector_d)
+d_1*N.e_1 + d_2*N.e_2 + d_3*N.e_3
 
 
 ```
