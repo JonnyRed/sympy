@@ -2,7 +2,7 @@
 
 This is a collection of `sympy` examples and notes. The purpose of this 
 is to provide a cheat sheet summary of the techniques used in solving 
-`sympy` problems from
+`sympy` problems.
 
 The purpose of this is to provide a cheat sheet summary of the techniques
 used in solving `sympy` problems from
@@ -83,6 +83,11 @@ Here is a summary of the relationship between Jupyter and IPython:
 1. [Sympy examples 1][]
 1. [SymPy: symbolic computing in Python][] looks cool
 1. Good [sympy tutorial][] and [sympy plotting][] by Vladimir Dobrushkin
+
+## Vectors, Tensors and Fields
+
+Added a doc by Peacock on Vectors, Tensors and Fields. It is very readable.
+The book may be found in the`docs` section
 
 ## Statistics
 
