@@ -1,7 +1,7 @@
 # Introduction
 
-This is a collection of `sympy` examples and notes. The purpose of this 
-is to provide a cheat sheet summary of the techniques used in solving 
+This is a collection of `sympy` examples and notes. The purpose of this
+is to provide a cheat sheet summary of the techniques used in solving
 `sympy` problems.
 
 The purpose of this is to provide a cheat sheet summary of the techniques
@@ -13,14 +13,6 @@ used in solving `sympy` problems from
 1. Dynamics(Kinematics and Kinetics)
 
 2023/08/26 Document creation and intro
-
-## Doctest
-
-To test the code in this README run the following python script
-
-```bash
-python -m doctest README<name>.JR.md  -v
-```
 
 ## IPython
 
