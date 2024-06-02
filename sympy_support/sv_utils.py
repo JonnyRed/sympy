@@ -1,4 +1,6 @@
 """
+##TODO Fix error due to base_vectors not used at all
+
 This module provides various utility functions for working with
 Sympy and Sympy's vector module.
 
