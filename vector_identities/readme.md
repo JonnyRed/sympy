@@ -3,7 +3,7 @@
 ## Preamble for identities
 
 ```python
->>> from itertools import starmap
+>>> from itertools import starmap, product
 >>> from operator import mul
 >>> from sympy import symbols, KroneckerDelta, Eijk
 >>> import sympy.vector as sv
@@ -68,6 +68,33 @@ d_1*N.e_1 + d_2*N.e_2 + d_3*N.e_3
 ```
 
 ## Identities
+
+$$\epsilon_{ijk} = \epsilon_{jki} = \epsilon_{kij} $$
+
+```python
+>>> all(
+...    Eijk(i, j, k) == Eijk(j, k, i) == Eijk(k, i, j)
+...       for i, j, k in product(range(1, 4), repeat=3)
+... )
+True
+
+```
+
+$$ \epsilon_{ijk} = -\epsilon_{jik} $$
+
+```python
+>>> all(
+...    (Eijk(i, j, k) == -Eijk(k, j, i))
+...    and (Eijk(i, j, k) == -Eijk(i, k, j))
+...    and (Eijk(i, j, k) == -Eijk(j, i, k))
+...       for i, j, k in product(range(1, 4), repeat=3)
+... )
+True
+
+```
+
+
+
 
 $$ [\mathbf A]_i \; \text {is  component of A} $$
 
