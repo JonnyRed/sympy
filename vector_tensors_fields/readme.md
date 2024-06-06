@@ -12,4 +12,29 @@ Overall, the document is a valuable resource for anyone interested in
 learning vector and tensor calculus, as well as its applications in
 physics and mathematics.
 
+The lectures may be found locally [here][vectors-tensors]
+
 [vectors tensors and fields]: https://www.roe.ac.uk/japwww/teaching/vtf.html
+[vectors-tensors]: ../docs/Vectors-Tensors-Fields.pdf
+
+## More on Suffix notation
+
+```python
+>>> from itertools import product
+>>> from sympy import symbols, KroneckerDelta, Eijk
+>>> from sympy.vector import CoordSys3D
+>>> N = CoordSys3D("N", vector_names=("e_1", "e_2", "e_3"))
+>>> print(N.base_vectors())
+(N.e_1, N.e_2, N.e_3)
+
+```
+
+$$e_i \cdot e_j = \delta_{ij}$$
+
+```python
+>>> all(
+... (N.base_vectors()[i-1].dot(N.base_vectors()[j-1]) == KroneckerDelta(i,j)) 
+...     for i,j in product(range(1, 4), repeat=2))
+True
+
+```
