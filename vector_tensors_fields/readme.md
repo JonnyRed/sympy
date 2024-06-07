@@ -23,6 +23,9 @@ The lectures may be found locally [here][vectors-tensors]
 >>> from itertools import product
 >>> from sympy import symbols, KroneckerDelta, Eijk
 >>> from sympy.vector import CoordSys3D
+>>> import sympy.vector as sv
+>>> v_zero = sv.Vector.zero
+
 >>> N = CoordSys3D("N", vector_names=("e_1", "e_2", "e_3"))
 >>> print(N.base_vectors())
 (N.e_1, N.e_2, N.e_3)
@@ -35,6 +38,18 @@ $$e_i \cdot e_j = \delta_{ij}$$
 >>> all(
 ... (N.base_vectors()[i-1].dot(N.base_vectors()[j-1]) == KroneckerDelta(i,j)) 
 ...     for i,j in product(range(1, 4), repeat=2))
+True
+
+```
+
+$$e_i \times e_j = \epsilon_{ijk} e_k$$
+
+```python
+>>> all (
+...   N.base_vectors()[i-1].cross(N.base_vectors()[j-1]) 
+...     == sum( (Eijk(i, j, k)* N.base_vectors()[k-1] 
+...            for k in range(1,4)), start=v_zero )
+...  for i,j in product(range(1, 4), repeat=2))
 True
 
 ```
