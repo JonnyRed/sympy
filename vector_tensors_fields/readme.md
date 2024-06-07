@@ -14,8 +14,11 @@ physics and mathematics.
 
 The lectures may be found locally [here][vectors-tensors]
 
+The tutorials from the lecture will be tackled in [Tutorials][]
+
 [vectors tensors and fields]: https://www.roe.ac.uk/japwww/teaching/vtf.html
 [vectors-tensors]: ../docs/Vectors-Tensors-Fields.pdf
+[Tutorials]:./tutorials.ipynb
 
 ## More on Suffix notation
 
