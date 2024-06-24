@@ -126,6 +126,26 @@ True
 ```
 
 $$
+\epsilon_{ijk} \epsilon_{imn} = \delta_{jm} \delta_{kn} - \delta_{jn} \delta_{km}
+$$
+
+```python
+
+>>> def delta_func(j, k, m, n):
+...    return (
+...        KroneckerDelta(j,m)*KroneckerDelta(k,n) 
+...        - KroneckerDelta(j,n)*KroneckerDelta(k,m)
+...    )
+
+>>> all(sum(Eijk(i,j,k)*Eijk(i,m,n) for i in range(1,4)) 
+...    == delta_func(j, k, m, n) 
+...        for j, k, m, n in product(range(1,4), repeat=4))
+True
+
+```
+
+
+$$
 \mathbf A = a_i \mathbf e_i
 $$
 
