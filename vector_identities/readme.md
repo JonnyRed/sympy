@@ -205,6 +205,10 @@ $$
 \mathbf{A} \times \mathbf{B} = \mathbf{e_i} \epsilon_{ijk} a_j b_k
 $$
 
+$$
+[\mathbf{A} \times \mathbf{B}]_i = \epsilon_{ijk} a_j b_k
+$$
+
 ```python
 
 >>> def vector_product(N, a, b, i, j, k):
