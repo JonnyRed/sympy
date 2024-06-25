@@ -93,9 +93,6 @@ True
 
 ```
 
-
-
-
 $$ [\mathbf A]_i \; \text {is  component of A} $$
 
 $$
@@ -143,7 +140,6 @@ $$
 True
 
 ```
-
 
 $$
 \mathbf A = a_i \mathbf e_i
@@ -195,8 +191,6 @@ True
 
 ```
 
-
-
 $$
 \mathbf{A} \times \mathbf{B} = \epsilon_{ijk} a_i b_j \mathbf{e_k}
 $$
@@ -233,8 +227,8 @@ $$\mathbf A \cdot ( \mathbf B \times \mathbf C ) = \mathbf C \cdot ( \mathbf A \
 $$
 
 $$
-a_i \; [ \mathbf B \times \mathbf C ]_i 
-    = a_i \epsilon_{ijk} b_j c_k = c_k \epsilon_{kij} a_i b_j = c_k [\mathbf A \times \mathbf B]_k 
+a_i \; [ \mathbf B \times \mathbf C ]_i
+    = a_i \epsilon_{ijk} b_j c_k = c_k \epsilon_{kij} a_i b_j = c_k [\mathbf A \times \mathbf B]_k
 $$
 
 ```python
@@ -245,5 +239,28 @@ True
 >>> (vector_c.dot(vector_a.cross(vector_b)).expand()
 ...    == vector_b.dot(vector_c.cross(vector_a)).expand())
 True
+
+```
+
+### Jacobi's Identities
+
+$$
+\mathbf A \times (\mathbf B \times \mathbf C)
++ \mathbf C \times (\mathbf A \times \mathbf B)
++ \mathbf B \times (\mathbf C \times \mathbf A)
+= 0
+$$
+
+```python
+>>> def vector_triple_produce(a, b, c):
+...    return c.dot(a) * b - (b.dot(a) * c)
+
+>>> a, b, c = [symbols(f"{ch}_1:4") for ch in "abc"]
+>>> vec_a, vec_b, vec_c = [vector(N, sy) for sy in [a, b, c]]
+>>> assert (
+...    vector_triple_produce(vec_a, vec_b, vec_c)
+...    + vector_triple_produce(vec_b, vec_c, vec_a)
+...    + vector_triple_produce(vec_c, vec_a, vec_b)
+... ) == v_zero
 
 ```
