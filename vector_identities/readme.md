@@ -255,12 +255,27 @@ $$
 >>> def vector_triple_produce(a, b, c):
 ...    return c.dot(a) * b - (b.dot(a) * c)
 
->>> a, b, c = [symbols(f"{ch}_1:4") for ch in "abc"]
->>> vec_a, vec_b, vec_c = [vector(N, sy) for sy in [a, b, c]]
+>>> a, b, c, d = [symbols(f"{ch}_1:4") for ch in "abcd"]
+>>> vec_a, vec_b, vec_c, vec_d = [vector(N, sy) for sy in [a, b, c, d]]
 >>> assert (
 ...    vector_triple_produce(vec_a, vec_b, vec_c)
 ...    + vector_triple_produce(vec_b, vec_c, vec_a)
 ...    + vector_triple_produce(vec_c, vec_a, vec_b)
 ... ) == v_zero
+
+```
+
+### Scalar quadruple product
+
+$$
+(A \times B) \cdot (C \times C) = (A \cdot C)(B \cdot D) - (A \cdot D)(B \cdot C)
+$$
+
+```python
+>>> (((vec_a.cross(vec_b)).dot(vec_c.cross(vec_d))).expand()
+... == 
+... ((vec_a.dot(vec_c))*(vec_b.dot(vec_d))-(vec_a.dot(vec_d))
+...    *(vec_b.dot(vec_c))).expand())
+True
 
 ```
