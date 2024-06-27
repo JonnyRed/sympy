@@ -283,7 +283,7 @@ True
 ### Lagrange's identity
 
 $$
-| (\mathbf A \times \mathbf B)|^2 = |\mathbf A|^2 |\mathbf B|^2 - (\mathbf A \cdot \mathbf B)^2 
+| (\mathbf A \times \mathbf B)|^2 = |\mathbf A|^2 |\mathbf B|^2 - (\mathbf A \cdot \mathbf B)^2
 $$
 
 ```python
@@ -291,6 +291,24 @@ $$
 ...    (vec_a.cross(vec_b).magnitude()**2).expand()
 ...    == (vec_a.magnitude()**2 * vec_b.magnitude()**2 - (vec_a.dot(vec_b))**2).expand()
 ... )
+True
+
+```
+
+### Vector quadruple product
+
+$$
+(\mathbf A \times \mathbf B) \times (\mathbf C \times \mathbf D)
+= ((\mathbf A \times \mathbf B) \cdot \mathbf D) \mathbf C
+    - ((\mathbf A \times \mathbf B)\cdot \mathbf C) \mathbf D
+$$
+
+```python
+>>> (((vec_a.cross(vec_b)).cross(vec_c.cross(vec_d))).expand()
+... == (
+...     ((vec_a.cross(vec_b)).dot(vec_d)*vec_c 
+...         - (vec_a.cross(vec_b).dot(vec_c)*vec_d)).expand()
+... ))
 True
 
 ```
