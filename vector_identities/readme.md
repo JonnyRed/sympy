@@ -268,7 +268,7 @@ $$
 ### Scalar quadruple product
 
 $$
-(A \times B) \cdot (C \times C) = (A \cdot C)(B \cdot D) - (A \cdot D)(B \cdot C)
+(\mathbf A \times \mathbf B) \cdot (\mathbf C \times \mathbf D) = (A \cdot \mathbf C)(\mathbf B \cdot \mathbf D) - (\mathbf A \cdot \mathbf D)(\mathbf B \cdot \mathbf C)
 $$
 
 ```python
@@ -276,6 +276,21 @@ $$
 ... == 
 ... ((vec_a.dot(vec_c))*(vec_b.dot(vec_d))-(vec_a.dot(vec_d))
 ...    *(vec_b.dot(vec_c))).expand())
+True
+
+```
+
+### Lagrange's identity
+
+$$
+| (\mathbf A \times \mathbf B)|^2 = |\mathbf A|^2 |\mathbf B|^2 - (\mathbf A \cdot \mathbf B)^2 
+$$
+
+```python
+>>> (
+...    (vec_a.cross(vec_b).magnitude()**2).expand()
+...    == (vec_a.magnitude()**2 * vec_b.magnitude()**2 - (vec_a.dot(vec_b))**2).expand()
+... )
 True
 
 ```
