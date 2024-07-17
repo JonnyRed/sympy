@@ -150,3 +150,19 @@ dmypy.json
 base-format-example-formatted.py
 base-format-example.py
 sandbox.py
+tensor-calculus_z/docs/Equations and Syntax/Curvature Equations and Syntax.pdf
+tensor-calculus_z/docs/Equations and Syntax/Curve Equations and Syntax.pdf
+tensor-calculus_z/docs/Equations and Syntax/Dot Product.pdf
+tensor-calculus_z/docs/Equations and Syntax/Multiple Dimensions.pdf
+tensor-calculus_z/docs/Equations and Syntax/Surface Equations and Syntax.pdf
+tensor-calculus_z/docs/Equations and Syntax/Tensor Calculus Equations and Syntax.pdf
+tensor-calculus_z/docs/Sample Coordinate Systems/Affine Coordinates.pdf
+tensor-calculus_z/docs/Sample Coordinate Systems/Cartesian Coordinates.pdf
+tensor-calculus_z/docs/Sample Coordinate Systems/Cylindrical Polar Coordinates.pdf
+tensor-calculus_z/docs/Sample Coordinate Systems/Plane Polar Coordinates.pdf
+tensor-calculus_z/docs/Sample Coordinate Systems/Spherical  Polar Coordinates.pdf
+tensor-calculus_z/docs/Sample Manifolds/Circle Embedded in a Sphere.pdf
+tensor-calculus_z/docs/Sample Manifolds/Cylindrical Surface.pdf
+tensor-calculus_z/docs/Sample Manifolds/Spherical Surface.pdf
+tensor-calculus_z/docs/Sample Manifolds/Spiral.pdf
+tensor-calculus_z/docs/Sample Manifolds/Torus Surface.pdf
